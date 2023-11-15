@@ -1,0 +1,18 @@
+   <style>
+    /* Remove text decoration from links */
+
+    /* Remove text decoration from links */
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 30px;
+    }
+  </style>
+  <h1>restaurants</h1>
+  <ul>
+    <% @restaurants.each do |restaurant| %>
+        <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+    <% end %>
+  </ul>
+
+<button class="btn btn-primary" ><%=link_to "New restaurant", new_restaurant_path, id:"c" %></button>

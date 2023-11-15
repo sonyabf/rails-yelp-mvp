@@ -1,0 +1,28 @@
+<h2><%= @restaurant.name %></h2>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.phone_number %></p>
+
+<%= button_to 'Edit', edit_restaurant_path(@restaurant), method: 'get' %>
+<%= link_to 'Remove', restaurant_path(@restaurant), method: :delete, data: { turbo_confirm: 'Are you sure?' } %>
+
+<%= button_to 'Back to the List', restaurants_path, method: 'get' %>
+
+<%= button_to 'Review', new_restaurant_review_path(@restaurant), method: 'get' %>
+
+<p>
+  Moyenne : <%= @average_rating %>
+</p>
+
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+
+<p><strong>rating</strong></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.rating %></li>
+  <% end %>
+</ul>
